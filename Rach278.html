@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+img {
+    display: block;
+    margin: 0 auto;
+}
+</style>
+</head>
+
+<body>
+
+<p>Is Marty is still interested in Rachel?</p>
+
+<input type="button" value="Yes" id="myButton" onclick="interest()"></input> 
+
+<p>Marty has thought of Rachel <span id="update">0</span> times since this page was requested.</p>
+
+<p>Rachel's current location (accurate as of <span id="dateNow">now</span>)</p>
+
+<img src="earth.jpg" alt="Smiley face" width="675" height="665">
+<script>
+var thoughts = 0;
+
+function interest() {
+    var x = Math.floor((Math.random() * 11) + 1);
+	var phrase = "Yes";
+	
+	switch(x) {
+		case 0:
+			phrase = "Yes";
+			break;
+		case 1:
+			phrase = "Ya";
+			break;
+		case 2:
+			phrase = "Yep";
+			break;
+		case 3:
+			phrase = "Si";
+			break;
+		case 4:
+			phrase = "Dolphinately";
+			break;
+		case 5:
+			phrase = "Turtley";
+			break;
+		case 6:
+			phrase = "Duh";
+			break;
+		case 7:
+			phrase = "Obviously";
+			break;
+		case 8:
+			phrase = "Hell yes!";
+			break;
+		case 9:
+			phrase = "Uh-huh";
+			break;
+		case 10:
+			phrase = "Oui";
+			break;		
+		case 11:
+			phrase = "Ja";
+			break;	
+	}
+		
+	document.getElementById("myButton").value = phrase;
+}
+
+function updateCounter() {
+	var timeSlice = Math.floor((Math.random() * 4750) + 250);
+	document.getElementById("update").innerHTML = thoughts;
+	
+	thoughts++;
+    var t = setTimeout(function(){updateCounter()}, timeSlice);
+}
+
+function startup() {
+	var d = new Date();
+	document.getElementById("dateNow").innerHTML = d.toUTCString();
+	updateCounter();
+}
+window.onload = startup();
+</script>
+
+</body>
+</html>
+
