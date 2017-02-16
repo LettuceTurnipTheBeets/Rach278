@@ -73,9 +73,8 @@ function interest() {
 function updateCounter() {
 	var timeSlice = Math.floor((Math.random() * 4750) + 250);
 	document.getElementById("update").innerHTML = thoughts;
-	
 	thoughts++;
-    var t = setTimeout(function(){updateCounter()}, timeSlice);
+	var t = setTimeout(function(){updateCounter()}, timeSlice);
 }
 
 function startup() {
